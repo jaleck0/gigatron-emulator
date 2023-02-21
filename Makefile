@@ -3,20 +3,20 @@
 # set the compiler
 CC := clang
 
-# set the compiler flags
-CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lSDL2_ttf -lm
-
 # add header files here
-HDRS :=
+HDRS := $(*.h)
 
 # add source files here
-SRCS := jg_emulator.c
+SRCS := emulator.c input.c sdldraw.c
 
 # generate names of object files
 OBJS := $(SRCS:.c=.o)
 
 # name of executable
-EXEC := emulate
+EXEC := emulate    
+
+# set the compiler flags
+CFLAGS := `sdl2-config --libs --cflags` -ggdb3 -O0 --std=c99 -Wall -lSDL2_image -lSDL2_ttf -lm
 
 # default recipe
 all: $(EXEC)
